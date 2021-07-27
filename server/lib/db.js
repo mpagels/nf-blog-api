@@ -36,7 +36,7 @@ const dbPath = path.resolve(__dirname, "./db.json");
 */
 function insert(article) {
   return fs.readFile(dbPath, "utf-8").then((jsonData) => {
-    const article = JSON.parse(jsonData);
+    const articles = JSON.parse(jsonData);
     const newArticle = {
       ...article,
       id: `${article.length + 1}`,
