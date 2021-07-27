@@ -96,26 +96,26 @@ function findById(id) {
 */
 function updateById(id, content) {
   return fs.readFile(dbPath, "utf-8").then((jsonData) => {
-    const posts = JSON.parse(jsonData);
+    const articles = JSON.parse(jsonData);
 
-    let newPost;
-    const newPosts = posts.map((post) => {
-      if (post.id === id) {
-        newPost = {
-          ...post,
+    let newArticle;
+    const newArticles = articles.map((article) => {
+      if (article.id === id) {
+        newAricle = {
+          ...article,
           ...content,
         };
-        return newPost;
+        return newArticle;
       } else {
-        return post;
+        return article;
       }
     });
 
-    if (newPost) {
-      fs.writeFile(dbPath, JSON.stringify(newPosts));
+    if (newArticle) {
+      fs.writeFile(dbPath, JSON.stringify(newArticles));
     }
 
-    return newPost;
+    return newArticle;
   });
 }
 
