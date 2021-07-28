@@ -39,7 +39,7 @@ function insert(article) {
     const articles = JSON.parse(jsonData);
     const newArticle = {
       ...article,
-      id: `${article.length + 1}`,
+      id: `${articles.length + 1}`,
       createdAt: new Date().toISOString(),
       votes: {
         up: 0,
@@ -101,7 +101,7 @@ function updateById(id, content) {
     let newArticle;
     const newArticles = articles.map((article) => {
       if (article.id === id) {
-        newAricle = {
+        newArticle = {
           ...article,
           ...content,
         };
